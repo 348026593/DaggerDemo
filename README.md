@@ -1,11 +1,11 @@
 # DaggerDemo
 Dagger2&amp;MVP Demo
-###Dagger2简介
+### Dagger2简介
 Dagger2是Dagger的升级版，是一个依赖注入框架，依赖注入是面向对象编程的一种设计模式，其目的是为了降低程序耦合。
 
 核心是通过java注解的方式进行依赖注入。
 
-###Dagger2用法
+### Dagger2用法
 * 配置apt插件（在build.gradle中添加代码）
 ```
  dependencies {
@@ -33,13 +33,13 @@ Dagger2是Dagger的升级版，是一个依赖注入框架，依赖注入是面�
       ...
   }
 ```
-###使用Dagger2
+### 使用Dagger2
 举例：Activity持有presenter的引用，并在Activity中实例化这个presenter，即Activity依赖presenter，presenter又需要依赖View接口与Model接口，从而更新UI。
 ![结构图](http://upload-images.jianshu.io/upload_images/7752337-96a025c133293c91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 相比MVP分包，加入Dagger后，需要多加入Module类和Component接口以实现依赖关系。
 
-#####使用步骤：
+##### 使用步骤：
 1. Activity要依赖presenter，先在activity中注入依赖presenter。
 ```
 public class MainActivity extends AppCompatActivity implements MainContract.View{
@@ -134,7 +134,7 @@ public interface MainComponent {
 
 6. 最后一步，放开activity中初始化presenter的代码，获取presenter实例。
 
-###总结
+### 总结
 * dagger2解决了mvp结构互相依赖的耦合问题
 * 使用孰能生巧吧，主要还是需要理解他的注入过程，刚开始用感觉步骤还挺麻烦的。
 * 需注意需要rebuild这个过程，使apt插件生成dagger代码。
